@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Привет 40sp"
+        android:textIsSelectable="true"
+
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:fontFamily="cursive"
+        android:textSize="40sp"
+        android:textColor="#BC3535"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Привет 21sp"
+        android:textAlignment="textEnd"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="#30871D"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

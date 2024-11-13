@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llTop"
+        android:background="#83EF25"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="HELLO EVERYONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvTop"
+            android:layout_marginTop="30dp">
+        </TextView>
+        <Button
+            android:backgroundTint="#1FB8A0"
+            android:text="Text on button 1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnTop"
+            android:layout_width="wrap_content">
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llBottom"
+        android:orientation="vertical"
+        android:background="#1FB8A0"
+        android:layout_weight="1"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="GOODBYE EVERYONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/tvBottom"
+            android:layout_marginTop="30dp">
+        </TextView>
+        <Button
+            android:backgroundTint="#83EF25"
+            android:text="Text on button 2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnBottom">
+        </Button>
+    </LinearLayout>
+</LinearLayout>

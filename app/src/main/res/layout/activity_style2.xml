@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:text="Подчеркивание снизу"
+        android:background="@drawable/textlines2"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <TextView
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:text="Подчеркивание всерху и снизу"
+
+        android:background="@drawable/textlines"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+    <View
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/arrow_up"/>
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/arrow_up" />
+
+    <ImageButton
+        android:id="@+id/tvFoo"
+        android:layout_margin="10dp"
+        android:background="@drawable/message_bubble"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:elevation="42dp"
+
+        android:text="button_text"
+ />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button_text"
+        android:textColor="@color/button_text" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_button_bg"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/solid_color_shape"
+        android:textColor="#ffffff"
+        android:text="Тестовый текст" />
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_shape"
+        android:textColor="#ffffff"
+        android:text="Тестовый текст" />
+
+
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:id="@+id/buttonAwesome"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Awesome Button"
+       android:textColor="#D74D4D"
+       app:backgroundTint="#FFF"/>
+    <Button
+        style="@style/BlueTheme"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Тестовая кнопка" />
+    <Button
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="20dp"
+        android:text="oval"
+        android:textColor="#388e3c"
+        android:background="@drawable/custom_button"/>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

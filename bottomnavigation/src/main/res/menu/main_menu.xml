@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.BaseActivity">
+
+    <item
+        android:id="@+id/action_notification1"
+        android:icon="@drawable/ic_launcher_background"
+        android:title="action_notification"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:icon="@mipmap/ic_launcher"
+                android:orderInCategory="100"
+                android:title="Профиль" />
+
+            <item
+                android:id="@+id/c"
+                android:checkable="true"
+                android:orderInCategory="100"
+                android:title="Автовыход" />
+
+            <item
+                android:id="@+id/app"
+                android:icon="@drawable/ic_launcher_background"
+                android:orderInCategory="100"
+                android:title="Пожаловаться" />
+            <item
+                android:id="@+id/l"
+                android:orderInCategory="100"
+                android:title="Выйти" />
+        </menu>
+    </item>
+
+
+</menu>
