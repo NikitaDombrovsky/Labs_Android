@@ -10,7 +10,7 @@
 
     <TextView
         android:textAppearance="@android:style/TextAppearance.Material.Headline"
-        android:text="This text is styled via textAppearance!"
+        android:text="Текст примера"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <Button
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="50dp"
+        style="@style/Btn"
+        android:text="Пустая кнопка"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/rar"/>
 

@@ -4,6 +4,10 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
+    <style name="Base.Theme.Labs_" parent="Theme.Material3.Dark"/>
     <style name="Theme.Labs" parent="Base.Theme.Labs" />
+    <style name="Btn" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@drawable/rar</item>
+        <item name="android:background">@drawable/rar</item>
+    </style>
 </resources>

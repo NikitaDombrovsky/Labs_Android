@@ -4,6 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
@@ -14,6 +15,7 @@
             <option value="$PROJECT_DIR$/bottomnavigation" />
             <option value="$PROJECT_DIR$/labs_basic_painting_with_views" />
             <option value="$PROJECT_DIR$/labs_image" />
+            <option value="$PROJECT_DIR$/sharedpreferencesmodule" />
             <option value="$PROJECT_DIR$/srs5_shuffleimage" />
             <option value="$PROJECT_DIR$/style" />
           </set>
