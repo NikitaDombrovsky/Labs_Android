@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/changeTxt"
+        android:textSize="40sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 40sp" />
+    <TextView
+        android:id="@+id/changeTxt3"
+        android:textSize="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 21dp" />
+
+
+    <TextView
+
+        android:textAlignment="center"
+        android:id="@+id/changeTxt1"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#C32121"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 40sp" />
+    <TextView
+        android:id="@+id/changeTxt2"
+        android:textAlignment="textEnd"
+        android:textSize="21dp"
+        android:textStyle="italic"
+        android:textColor="#4CAF50"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 21dp sdadaaasdadasd" />
+    <TextView
+        android:id="@+id/changeTxt4"
+        android:textSize="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 21dp" />
+    <TextView
+        android:id="@+id/changeTxt51"
+        android:textSize="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 21dp" />
+    <TextView
+        android:id="@+id/changeTxt52"
+        android:textSize="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Привет 21dp" />
+
+
+</LinearLayout>

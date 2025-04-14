@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary3">#1F5AC0</color>
+    <color name="colorError">#F44336</color>
+    <color name="colorChange">#00BCD4</color>
+    <color name="colorPicasso">#1F5AC0</color>
+    <color name="colorGlide">#1F5AC0</color>
+    <color name="colorFresco">#1F5AC0</color>
+    <color name="colorCoil">#1F5AC0</color>
+</resources>

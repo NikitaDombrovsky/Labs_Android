@@ -10,4 +10,8 @@
         <item name="backgroundTint">@drawable/rar</item>
         <item name="android:background">@drawable/rar</item>
     </style>
+    <style name="Theme.Labs2" parent="Base.Theme.Labs" >
+        <item name="android:background">@color/design_default_color_secondary</item>
+    </style>
+
 </resources>

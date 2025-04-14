@@ -10,17 +10,30 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/advancedtodo" />
+            <option value="$PROJECT_DIR$/advancedtodo2" />
+            <option value="$PROJECT_DIR$/algoritmskotlinmodule" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/labs_alertdialog" />
             <option value="$PROJECT_DIR$/bottomnavigation" />
+            <option value="$PROJECT_DIR$/imagesparsing" />
             <option value="$PROJECT_DIR$/labs_basic_painting_with_views" />
             <option value="$PROJECT_DIR$/labs_image" />
+            <option value="$PROJECT_DIR$/login" />
+            <option value="$PROJECT_DIR$/network_okhttp" />
+            <option value="$PROJECT_DIR$/parser" />
+            <option value="$PROJECT_DIR$/prof_start_apps" />
+            <option value="$PROJECT_DIR$/roommodulejava" />
             <option value="$PROJECT_DIR$/sharedpreferencesmodule" />
+            <option value="$PROJECT_DIR$/sqldatabesesecondmodule" />
+            <option value="$PROJECT_DIR$/sqlitedatabasemodule" />
+            <option value="$PROJECT_DIR$/srs1_prof" />
             <option value="$PROJECT_DIR$/srs5_shuffleimage" />
             <option value="$PROJECT_DIR$/style" />
+            <option value="$PROJECT_DIR$/viewbindingmodule" />
+            <option value="$PROJECT_DIR$/zuckerman" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

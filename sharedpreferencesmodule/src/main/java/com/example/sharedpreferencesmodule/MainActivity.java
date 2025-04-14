@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         return isValid;
     }
 
+
     // Метод для сохранения данных в SharedPreferences
     private void saveData(String username, String email, String password) {
         SharedPreferences.Editor editor = sharedPreferences.edit();

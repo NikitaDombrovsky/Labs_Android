@@ -18,11 +18,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <Button
-        style="@style/Btn"
+        android:id="@+id/styleBtn"
         android:text="Пустая кнопка"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:background="@drawable/rar"/>
+        android:layout_height="50dp" />
 
 
 </LinearLayout>
