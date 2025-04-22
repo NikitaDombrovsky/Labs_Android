@@ -1,3 +1,4 @@
+/*
 package com.example.imagesparsing.Lib.ImageLoaders;
 
 import android.content.Context;
@@ -46,6 +47,7 @@ public class FrescoImageLoader extends ImageLoadersClass {
             throw new IllegalArgumentException("ImageView must be SimpleDraweeView for Fresco");
         }
        // mSimpleDraweeView.getHierarchy().setPlaceholderImage(placeholderImage);
+*/
 /*        if (imageView instanceof SimpleDraweeView) {
             Uri uri = Uri.parse(url);
             DraweeController controller = Fresco.newDraweeControllerBuilder()
@@ -61,11 +63,13 @@ public class FrescoImageLoader extends ImageLoadersClass {
             ((SimpleDraweeView) imageView).setController(controller);
         } else {
             throw new IllegalArgumentException("ImageView must be SimpleDraweeView for Fresco");
-        }*/
+        }*//*
+
     }
 
     @Override
     public void loadImage(String url, ImageView imageView, int placeholderResId, int errorResId) {
+*/
 /*        isValidUrl(url);
         if (imageView instanceof SimpleDraweeView) {
             Uri uri = Uri.parse(url);
@@ -73,7 +77,8 @@ public class FrescoImageLoader extends ImageLoadersClass {
             ((SimpleDraweeView) imageView).setImageURI(uri);
         } else {
             throw new IllegalArgumentException("ImageView must be SimpleDraweeView for Fresco");
-        }*/
+        }*//*
+
         if (imageView instanceof SimpleDraweeView) {
             Uri uri = Uri.parse(url);
             // Можно и как выше можно и так
@@ -158,3 +163,4 @@ public class FrescoImageLoader extends ImageLoadersClass {
 
     }
 }
+*/

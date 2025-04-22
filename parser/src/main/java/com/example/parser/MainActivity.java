@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parser.Models.Cart;
 import com.example.parser.Models.Coordinates;
+import com.example.parser.Models.Jackson.RootJS;
 import com.example.parser.Models.Location;
 import com.example.parser.Models.Name;
 import com.example.parser.Models.Root;
@@ -224,21 +225,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         GSONMethods();
+        //JacksonMethods();
 
+    }
+    private void JacksonMethods(){
+        JacksonParser parser = new JacksonParser();
+        // Чтение JSONObject
+        RootJS rootObj = parser.toModel(testjson1);
+        // Создание JSONObject
+       // JSONObject jsonObj = parser.toObject(createTestRoot());
+        // Чтение JSONArray
+        List<RootJS> rootArr = parser.toListModel(testJson2);
+        // Создание JSONArray
+       // JSONArray jsonArr = parser.toArray(createTestRoots());
+      //  Test test = parser.test();
+        Log.e("!", rootObj.toString());
     }
     // TODO GSON
     private void GSONMethods(){
         GsonParser parser = new GsonParser();
         // Чтение JSONObject
-        Root rootGSON = parser.parseFromObject(testjson1);
+        Root rootObj = parser.toModel(testjson1);
         // Создание JSONObject
-        JSONObject jsonObjectGSON = parser.parseToObject(createTestRoot());
+        JSONObject jsonObj = parser.toObject(createTestRoot());
         // Чтение JSONArray
-        List<Root> rootGSONArray = parser.parseFromArray(testJson2);
+        List<Root> rootArr = parser.toListModel(testJson2);
         // Создание JSONArray
-        JSONArray jsonArrayGSON = parser.parseToArray(createTestRoots());
+        JSONArray jsonArr = parser.toArray(createTestRoots());
 
-        Log.e("!", rootGSON.toString());
+        Log.e("!", rootObj.toString());
     }
     private List<Root> createTestRoots(){
         ArrayList<Root> roots = new ArrayList<>();

@@ -22,7 +22,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.imagesparsing.Lib.ImageLoadersClass;
 import com.example.imagesparsing.R;
-import com.squareup.picasso.Picasso;
 
 import java.security.MessageDigest;
 
@@ -30,6 +29,7 @@ public class GlideImageLoader extends ImageLoadersClass {
     public GlideImageLoader(Context context) {
         super(context);
     }
+
 
     @Override
     public void loadImage(String url, ImageView imageView) {
@@ -42,22 +42,23 @@ public class GlideImageLoader extends ImageLoadersClass {
     public void loadImage(String url, ImageView imageView, int placeholderResId) {
         Glide.with(context)
                 .load(url)
-                .placeholder(placeholderResId) // can also be a drawable
+                .placeholder(placeholderResId)
                 .into(imageView);
     }
 
     @Override
     public void loadImage(String url, ImageView imageView, int placeholderResId, int errorResId) {
-        Glide.with(context).load(url)
-                // will be displayed if the image cannot be loaded
+        Glide.with(context)
+                .load(url)
                 .placeholder(placeholderResId)
-                .error(errorResId) // will be displayed if the image cannot be loaded
+                .error(errorResId)
                 .into(imageView);
     }
 
     @Override
     public void loadImage(String url, ImageView imageView, ImageLoadCallback callback) {
-        Glide.with(context).load(url)
+        Glide.with(context)
+                .load(url)
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -90,7 +91,7 @@ public class GlideImageLoader extends ImageLoadersClass {
         if (resizeWight != 0 && resizeHeight != 0) {
             Glide.with(context)
                     .load(url)
-                    .override(resizeWight, resizeHeight)// resizes the image to these dimensions (in pixel). does not respect aspect ratio
+                    .override(resizeWight, resizeHeight)
                     .into(imageView);
         } else {
             resizeImageDefault(url, imageView);
@@ -165,12 +166,6 @@ public class GlideImageLoader extends ImageLoadersClass {
     }
 
     @Override
-    public void complexRotate(String url, ImageView imageView) {
-        Log.e("!", "А оно и не должно работать");
-        // TODO Сделать
-    }
-
-    @Override
     public void customTransform(String url, ImageView imageView) {
         Glide.with(context)
                 .load(url)
@@ -195,15 +190,22 @@ public class GlideImageLoader extends ImageLoadersClass {
                 // .transform(new MyTransformation(context))
                 .into(imageView);
     }
-
-    public void forGifs(String url, ImageView imageView) {
+    @Override
+    public void forGifsGlide(String url, ImageView imageView) {
         // For Gifs:
         Glide.with(context)
                 // Обязательно перед load
                 .asGif()
-                //.load("https://media1.tenor.com/m/IXcAfMNnsBMAAAAd/crocodile-explosion.gif")
                 .load("https://media1.tenor.com/m/RR-8CBT-yb4AAAAd/plane-memes.gif")
-                //.override(600, 600)
                 .error(R.drawable.ic_launcher_background).diskCacheStrategy(DiskCacheStrategy.DATA).into(imageView);
     }
+    @Override
+    public void noFadePicasso(String url, ImageView imageView, int placeholderResId) {
+        Log.e("!", "А не и должно");
+    }
+    @Override
+    public void complexRotate(String url, ImageView imageView) {
+        Log.e("!", "А не и должно");
+    }
+
 }

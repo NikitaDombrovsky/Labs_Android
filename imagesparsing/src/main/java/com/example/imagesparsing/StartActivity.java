@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.imagesparsing.Lib.ImageLibrary;
 
@@ -27,6 +26,9 @@ public class StartActivity extends AppCompatActivity {
         //ImageParsingViewModel viewModel = new ViewModelProvider(this).get(ImageParsingViewModel.class);
 
         //ImageParsingImpl imageParsingRepository ;
+
+
+
         View.OnClickListener onClickListener = new View.OnClickListener() {
 
             @Override
@@ -40,22 +42,22 @@ public class StartActivity extends AppCompatActivity {
                         DataHolder.getInstance().setImageUrl("https://example.com/image.jpg");
                         startActivity(new Intent(this, SecondActivity.class));*/
 
-                        ImageParsingImpl.saveSelectedLibrary(ImageLibrary.PICASSO);
+                        DataBinding.saveSelectedLibrary(ImageLibrary.PICASSO);
                         //viewModel.setSelectedLibrary(ImageLibrary.PICASSO);
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));//.putExtra("Type", "Picasso"));
                         break;
                     case "Glide":
                         //viewModel.setSelectedLibrary(ImageLibrary.GLIDE);
-                        ImageParsingImpl.saveSelectedLibrary(ImageLibrary.GLIDE);
+                        DataBinding.saveSelectedLibrary(ImageLibrary.GLIDE);
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));//.putExtra("Type", "Glide"));
                         break;
                     case "Fresco":
-                        ImageParsingImpl.saveSelectedLibrary(ImageLibrary.GLIDE);
-                        startActivity(new Intent(getApplicationContext(), FrescoActivity.class));
+                        DataBinding.saveSelectedLibrary(ImageLibrary.GLIDE);
+                       // startActivity(new Intent(getApplicationContext(), FrescoActivity.class));
                         break;
                     case "Coil":
                         //viewModel.setSelectedLibrary(ImageLibrary.COIL);
-                        ImageParsingImpl.saveSelectedLibrary(ImageLibrary.COIL);
+                        DataBinding.saveSelectedLibrary(ImageLibrary.COIL);
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));//.putExtra("Type", "Glide"));
                         break;
                 }
@@ -66,6 +68,7 @@ public class StartActivity extends AppCompatActivity {
         pickFrescoBtn.setOnClickListener(onClickListener);
         pickCoilBtn.setOnClickListener(onClickListener);
     }
+
 
 
 }

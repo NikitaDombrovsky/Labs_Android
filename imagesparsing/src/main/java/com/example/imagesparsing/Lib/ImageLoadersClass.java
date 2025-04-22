@@ -3,6 +3,8 @@ package com.example.imagesparsing.Lib;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.example.imagesparsing.R;
+
 public abstract class ImageLoadersClass  {
 
     protected Context context;
@@ -26,15 +28,23 @@ public abstract class ImageLoadersClass  {
 
     public abstract void rotateDefault(String url, ImageView imageView);
     public abstract void rotateCustom(String url, ImageView imageView, float rotateF);
-    public abstract void complexRotate(String url, ImageView imageView);
 
     public abstract void customTransform(String url, ImageView imageView);
 
+    // Интерфейс колбэка для загрузки
+    public interface ImageLoadCallback {
+        void onSuccess();       // Вызывается при успешной загрузке
+        void onFailure(Exception e);  // Вызывается при ошибке
+    }
+
+    public abstract void complexRotate(String url, ImageView imageView);
+    public abstract void noFadePicasso(String url, ImageView imageView, int placeholderResId);
+    public abstract void forGifsGlide(String url, ImageView imageView);
 
     // Общий метод для проверки URL
     // TODO Проверку на URL а не на пустоту
     protected void isValidUrl(String url) {
-        if (url == null && url.isEmpty()) {
+        if (url == null && url.isEmpty() ) {
             throw new IllegalStateException("Url cannot be null");
         }
     }
@@ -44,9 +54,5 @@ public abstract class ImageLoadersClass  {
             throw new IllegalStateException("Context cannot be null");
         }
     }
-    // Интерфейс колбэка для загрузки
-    public interface ImageLoadCallback {
-        void onSuccess();       // Вызывается при успешной загрузке
-        void onFailure(Exception e);  // Вызывается при ошибке
-    }
+
 }

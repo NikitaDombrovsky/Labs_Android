@@ -1,9 +1,6 @@
 package com.example.imagesparsing;
 
-import static android.view.View.INVISIBLE;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,32 +10,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.imagesparsing.Lib.ImageLibrary;
 import com.example.imagesparsing.Lib.ImageLoaderFactory;
-import com.example.imagesparsing.Lib.ImageLoaders.GlideImageLoader;
-import com.example.imagesparsing.Lib.ImageLoaders.PicassoImageLoader;
 import com.example.imagesparsing.Lib.ImageLoadersClass;
-import com.example.imagesparsing.Trash.ImageParsingViewModel;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button defaultBtn, resize, centrecrop, centreinside, fit, placeholder, error, fade, callback, rotate, complexrotate, customTransform, gif;
+    Button defaultBtn, resize, centrecrop, centreinside, fit, placeholder, error, /*fade,*/ callback, rotate, /*complexrotate,*/ customTransform, gif;
     ImageView iv, ivSimpleDraweeView;
-
 
     EditText resizeWightEdt, resizeHeightEdt, rotateEdt;
     int resizeWight = 0, resizeHeight = 0;
     float rotateF = 0;
 
-    int placeholderResId = R.drawable.placeholder_fill_svgrepo_com
-            , errorResId = R.drawable.baseline_error_24;
+    int placeholderResId = R.drawable.placeholder_fill_svgrepo_com, errorResId = R.drawable.baseline_error_24;
 
     //public ImageLibrary imageLibraryName = ImageLibrary.COIL;
 
     public String base_url = "https://i.imgur.com/DvpvklR.png";
     public String error_url = "123456789";
-    ImageLoadersClass imageLoaders;
-/*    PicassoClass picassoClass;
-    GlideClass glideClass;*/
-    // PicassoImageLoader picassoClass1;
+    ImageLoadersClass imageLoader;
 
     private void init() {
         resize = findViewById(R.id.resize);
@@ -47,12 +36,11 @@ public class MainActivity extends AppCompatActivity {
         fit = findViewById(R.id.fit);
         placeholder = findViewById(R.id.placeholder);
         error = findViewById(R.id.error);
-        fade = findViewById(R.id.fade);
+        //fade = findViewById(R.id.fade);
         callback = findViewById(R.id.callback);
         rotate = findViewById(R.id.rotate);
         iv = findViewById(R.id.iv);
-        //ivSimpleDraweeView = findViewById(R.id.ivSimpleDraweeView);
-        complexrotate = findViewById(R.id.complexrotation);
+       // complexrotate = findViewById(R.id.complexrotation);
         resizeWightEdt = findViewById(R.id.resizeWidthEdt);
         resizeHeightEdt = findViewById(R.id.resizeHeightEdt);
         rotateEdt = findViewById(R.id.rotateEdt);
@@ -73,12 +61,13 @@ public class MainActivity extends AppCompatActivity {
     private void enabledChanger(ImageLibrary imageLibraryName) {
         switch (imageLibraryName) {
             case COIL:
+               // fade.setEnabled(false);
+               // complexrotate.setEnabled(false);
                 break;
             case GLIDE:
+               // fade.setEnabled(false);
+               // complexrotate.setEnabled(false);
                 //glideClass.startGlide();
-                break;
-            case FRESCO:
-                iv.setVisibility(INVISIBLE);
                 break;
             case PICASSO:
                 gif.setEnabled(false);
@@ -87,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    ImageParsingViewModel viewModel;
+    // ImageParsingViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,13 +100,12 @@ public class MainActivity extends AppCompatActivity {
         //libraryName = Library.COIL;
         init();
         //if (libraryName != Library.FRESCO){
-       // viewModel.setSelectedLibrary(ImageLibrary.PICASSO);
+        // viewModel.setSelectedLibrary(ImageLibrary.PICASSO);
 
-       // imageLoaders = ImageLoaderFactory.create(this, imageLibraryName);
-        ImageLibrary library = ImageParsingImpl.getSelectedLibrary();
-        imageLoaders = ImageLoaderFactory.create(this, library);
-        //}
 
+        ImageLibrary library = DataBinding.getSelectedLibrary();
+        imageLoader = ImageLoaderFactory.create(this, library);
+        // imageLoaders.loadImage();
 
         // TODO Убрать
         // libraryName = Library.PICASSO;
@@ -130,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loading() {
         // Используем единый интерфейс
-        imageLoaders.loadImage(base_url, iv);
+        imageLoader.loadImage(base_url, iv);
 /*        switch (libraryName){
             case COIL:
                 break;
@@ -160,129 +148,70 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        defaultBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loading();
-            }
-        });
-        resize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getResizeSize();
-                imageLoaders.resizeImageCustom(base_url, iv, resizeWight, resizeHeight);
-                Toast.makeText(MainActivity.this, "Resize called ", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        centrecrop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.centerCrop(base_url, iv);
-                Toast.makeText(MainActivity.this, "Centrecrop called ", Toast.LENGTH_SHORT).show();
-            }
-        });
-        centreinside.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.centerInside(base_url, iv);
-                Toast.makeText(MainActivity.this, "Centreinside called ", Toast.LENGTH_SHORT).show();
-            }
-        });
-        fit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.fit(base_url, iv);
-                Toast.makeText(MainActivity.this, "Fit called ", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        placeholder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.loadImage(error_url, iv, placeholderResId);
-                Toast.makeText(MainActivity.this, "Placeholder called ", Toast.LENGTH_SHORT).show();
-            }
+        defaultBtn.setOnClickListener(v -> loading());
+        resize.setOnClickListener(view -> {
+            getResizeSize();
+            imageLoader.resizeImageCustom(base_url, iv, resizeWight, resizeHeight);
+            Toast.makeText(MainActivity.this, "Resize called ", Toast.LENGTH_SHORT).show();
         });
         //
-        error.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.loadImage(error_url, iv, placeholderResId, errorResId);
-                Toast.makeText(MainActivity.this, "Error called ", Toast.LENGTH_SHORT).show();
-            }
+        centrecrop.setOnClickListener(view -> {
+            imageLoader.centerCrop(base_url, iv);
+            Toast.makeText(MainActivity.this, "Centrecrop called ", Toast.LENGTH_SHORT).show();
         });
-        callback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.loadImage(error_url, iv, new ImageLoadersClass.ImageLoadCallback() {
-                    @Override
-                    public void onSuccess() {
-                        Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onFailure(Exception e) {
-                        Toast.makeText(MainActivity.this, "Error:" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-                //picassoClass.callbackPicasso();
-            }
+        centreinside.setOnClickListener(view -> {
+            imageLoader.centerInside(base_url, iv);
+            Toast.makeText(MainActivity.this, "Centreinside called ", Toast.LENGTH_SHORT).show();
+        });
+        fit.setOnClickListener(view -> {
+            imageLoader.fit(base_url, iv);
+            Toast.makeText(MainActivity.this, "Fit called ", Toast.LENGTH_SHORT).show();
         });
         //
-        rotate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getRotateSize();
-                imageLoaders.rotateCustom(base_url, iv, rotateF);
-                // picassoClass.rotatePisassoDefaultCustom(rotateF);
-                Toast.makeText(MainActivity.this, "Rotate Called", Toast.LENGTH_SHORT).show();
-            }
+        placeholder.setOnClickListener(view -> {
+            imageLoader.loadImage(error_url, iv, placeholderResId);
+            Toast.makeText(MainActivity.this, "Placeholder called ", Toast.LENGTH_SHORT).show();
         });
-        complexrotate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageLoaders.complexRotate(base_url, iv);
-                //picassoClass.complexrotatePicasso();
-                Toast.makeText(MainActivity.this, "Complex Rotate Called", Toast.LENGTH_SHORT).show();
-            }
+        error.setOnClickListener(view -> {
+            imageLoader.loadImage(error_url, iv, placeholderResId, errorResId);
+            Toast.makeText(MainActivity.this, "Error called ", Toast.LENGTH_SHORT).show();
         });
-        //
-        customTransform.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageLoaders.customTransform(base_url, iv);
-                //picassoClass.customTransform();
-            }
-        });
-        //
-        // TODO Убрать к хуям
-        fade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (imageLoaders instanceof GlideImageLoader) {
-                    ((GlideImageLoader) imageLoaders).noFade(base_url, iv);
-                } else if (imageLoaders instanceof PicassoImageLoader) {
-                    ((PicassoImageLoader) imageLoaders).noFadePicasso(base_url, iv, R.drawable.ic_launcher_foreground);
+        callback.setOnClickListener(view -> {
+            imageLoader.loadImage(error_url, iv, new ImageLoadersClass.ImageLoadCallback() {
+                @Override
+                public void onSuccess() {
+                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 }
-/*
 
-                PicassoImageLoader picassoImageLoader = new PicassoImageLoader(getApplicationContext());
-                picassoImageLoader.noFadePicasso(base_url, iv, R.drawable.ic_launcher_foreground);
-*/
-
-/*                GlideImageLoader glideImageLoader = new GlideImageLoader(getApplicationContext());
-                glideImageLoader.noFade(base_url, iv);*/
-
-                Toast.makeText(MainActivity.this, "Fade called ", Toast.LENGTH_SHORT).show();
-            }
+                @Override
+                public void onFailure(Exception e) {
+                    Toast.makeText(MainActivity.this, "Error:" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
         });
-        gif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GlideImageLoader glideImageLoader = new GlideImageLoader(getApplicationContext());
-                glideImageLoader.forGifs(base_url, iv);
-            }
+        //
+        rotate.setOnClickListener(view -> {
+            getRotateSize();
+            imageLoader.rotateCustom(base_url, iv, rotateF);
+            Toast.makeText(MainActivity.this, "Rotate Called", Toast.LENGTH_SHORT).show();
+        });
+        //
+        customTransform.setOnClickListener(v -> {
+            imageLoader.customTransform(base_url, iv);
+            Toast.makeText(MainActivity.this, "Custom Transform Called", Toast.LENGTH_SHORT).show();
+        });
+        //
+/*        complexrotate.setOnClickListener(view -> {
+            imageLoader.complexRotate(base_url, iv);
+            Toast.makeText(MainActivity.this, "Complex Rotate Called", Toast.LENGTH_SHORT).show();
+        });*/
+/*        fade.setOnClickListener(view -> {
+            imageLoader.noFadePicasso(base_url, iv, placeholderResId);
+            Toast.makeText(MainActivity.this, "Fade called ", Toast.LENGTH_SHORT).show();
+        });*/
+        gif.setOnClickListener(v -> {
+            imageLoader.forGifsGlide(base_url, iv);
+            Toast.makeText(MainActivity.this, "Gif called ", Toast.LENGTH_SHORT).show();
         });
     }
 }

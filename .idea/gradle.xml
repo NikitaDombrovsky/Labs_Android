@@ -15,14 +15,23 @@
             <option value="$PROJECT_DIR$/algoritmskotlinmodule" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/labs_alertdialog" />
+            <option value="$PROJECT_DIR$/app2" />
             <option value="$PROJECT_DIR$/bottomnavigation" />
+            <option value="$PROJECT_DIR$/heterogenouslistviewmodule" />
+            <option value="$PROJECT_DIR$/heterogenrecyclermodule" />
             <option value="$PROJECT_DIR$/imagesparsing" />
+            <option value="$PROJECT_DIR$/jsonparser" />
             <option value="$PROJECT_DIR$/labs_basic_painting_with_views" />
             <option value="$PROJECT_DIR$/labs_image" />
             <option value="$PROJECT_DIR$/login" />
+            <option value="$PROJECT_DIR$/network_get_post_method" />
+            <option value="$PROJECT_DIR$/network_httpurlconnection" />
             <option value="$PROJECT_DIR$/network_okhttp" />
             <option value="$PROJECT_DIR$/parser" />
             <option value="$PROJECT_DIR$/prof_start_apps" />
+            <option value="$PROJECT_DIR$/prof_start_apps_button" />
+            <option value="$PROJECT_DIR$/prof_start_apps_edittext" />
+            <option value="$PROJECT_DIR$/recyclerviewmodule" />
             <option value="$PROJECT_DIR$/roommodulejava" />
             <option value="$PROJECT_DIR$/sharedpreferencesmodule" />
             <option value="$PROJECT_DIR$/sqldatabesesecondmodule" />
@@ -30,6 +39,8 @@
             <option value="$PROJECT_DIR$/srs1_prof" />
             <option value="$PROJECT_DIR$/srs5_shuffleimage" />
             <option value="$PROJECT_DIR$/style" />
+            <option value="$PROJECT_DIR$/supabasejavaokhttp" />
+            <option value="$PROJECT_DIR$/swipetorefreshrecyclerviewmidule" />
             <option value="$PROJECT_DIR$/viewbindingmodule" />
             <option value="$PROJECT_DIR$/zuckerman" />
           </set>

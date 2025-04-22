@@ -1,3 +1,4 @@
+/*
 package com.example.imagesparsing;
 
 import android.os.Bundle;
@@ -63,9 +64,11 @@ public class FrescoActivity extends AppCompatActivity {
             case GLIDE:
                 //glideClass.startGlide();
                 break;
-            case FRESCO:
+*/
+/*            case FRESCO:
 
-                break;
+                break;*//*
+
             case PICASSO:
                 gif.setEnabled(false);
                 break;
@@ -84,9 +87,11 @@ public class FrescoActivity extends AppCompatActivity {
         // Выбираем библиотеку (можно вынести в настройки)
 
 
+*/
 /*        if (libraryName == Library.FRESCO){
             imageLoaders = ImageLoaderFactory.create(this, libraryName);
-        }*/
+        }*//*
+
         ImageLibrary library = ImageParsingImpl.getSelectedLibrary();
         imageLoaders = ImageLoaderFactory.create(this, library);
         Fresco.initialize(this);
@@ -231,14 +236,18 @@ public class FrescoActivity extends AppCompatActivity {
                 } else if (imageLoaders instanceof PicassoImageLoader) {
                     ((PicassoImageLoader) imageLoaders).noFadePicasso(base_url, draweeView, R.drawable.ic_launcher_foreground);
                 }
+*/
 /*
 
                 PicassoImageLoader picassoImageLoader = new PicassoImageLoader(getApplicationContext());
                 picassoImageLoader.noFadePicasso(base_url, iv, R.drawable.ic_launcher_foreground);
-*/
+*//*
 
+
+*/
 /*                GlideImageLoader glideImageLoader = new GlideImageLoader(getApplicationContext());
-                glideImageLoader.noFade(base_url, iv);*/
+                glideImageLoader.noFade(base_url, iv);*//*
+
 
                 Toast.makeText(FrescoActivity.this, "Fade called ", Toast.LENGTH_SHORT).show();
             }
@@ -251,4 +260,4 @@ public class FrescoActivity extends AppCompatActivity {
             }
         });
     }
-}
+}*/

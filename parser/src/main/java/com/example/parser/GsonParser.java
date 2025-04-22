@@ -12,59 +12,61 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class GsonParser {
-    public JSONObject parseToObject(Root root1Object) {
+public class GsonParser extends Parser {
+    @Override
+    // Сериализация Root в JSON
+    public JSONObject toObject(Root rootObj) {
         Gson gson = new Gson();
-
         try {
-            String jsonObject = gson.toJson(root1Object);
+            String jsonObject = gson.toJson(rootObj);
             return new JSONObject(jsonObject);
 
         } catch (Exception e) {
-            Log.e("GsonParse:parseToObject", e.getLocalizedMessage());
+            Log.e("GsonParser:toObject", e.getLocalizedMessage());
         }
         return null;
-
     }
-    public Root parseFromObject(String string) {
+
+    @Override
+    // Десериализация JSON в объект Root
+    public Root toModel(String string) {
         Gson gson = new Gson();
         try {
-
-            // Reader - для чтения файла
             // Тип объекта который вы хотите прочитать
             return gson.fromJson(string, Root.class);
         } catch (Exception e) {
-            Log.e("GsonParse:parseFromObject", e.getLocalizedMessage());
+            Log.e("GsonParser:toModel", e.getLocalizedMessage());
         }
         return null;
-
     }
 
-
-    public JSONArray parseToArray(List<Root> roots) {
+    @Override
+    // Сериализация List<Root> в JSONArray
+    public JSONArray toArray(List<Root> roots) {
         Gson gson = new Gson();
         try {
             String jsonObject = gson.toJson(roots);
 
             return new JSONArray(jsonObject);
         } catch (Exception e) {
-            Log.e("GsonParse:parseToArray", e.getLocalizedMessage());
+            Log.e("GsonParser:toArray", e.getLocalizedMessage());
         }
         return null;
-
     }
-    public List<Root> parseFromArray(String string) {
+
+    @Override
+    // Десериализация JSONArray в List<Root>
+    public List<Root> toListModel(String string) {
         Gson gson = new Gson();
         try {
-
-            Type type = new TypeToken<List<Root>>(){}.getType();
+            Type type = new TypeToken<List<Root>>() {
+            }.getType();
 
             return gson.fromJson(string, type);
         } catch (Exception e) {
-            Log.e("GsonParse:parseFromArray", e.getLocalizedMessage());
+            Log.e("GsonParser:toListModel", e.getLocalizedMessage());
         }
         return null;
-
     }
 }
 /*

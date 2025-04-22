@@ -139,6 +139,11 @@ public class DatabaseHelper_ extends SQLiteOpenHelper implements DatabaseHelper 
         }
     }
 
+    @Override
+    public ArrayList<Object> getAllData(String tableName) {
+        return null;
+    }
+
 
     /*    public ArrayList<?> SelectAll(Class<?> type, Context ctx, String whereClause) {
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.widget.ImageView;
 
 
@@ -30,10 +31,10 @@ public class CoilImageLoader extends ImageLoadersClass {
         super(context);
     }
 
+
     ImageLoader imageLoader = new ImageLoader.Builder(context).build();
     @Override
     public void loadImage(String url, ImageView imageView) {
-        //Coil.load(imageView, "https://example.com/image.jpg");
         ImageRequest request = new ImageRequest.Builder(context)
                 .data(url)
                 .target(imageView)
@@ -195,7 +196,7 @@ public class CoilImageLoader extends ImageLoadersClass {
         if (rotateF != 0) {
             ImageRequest request = new ImageRequest.Builder(context)
                     .data(url)
-                    .transformations(new RotateTransformation(rotateF)) // Поворот на 90°
+                    .transformations(new RotateTransformation(rotateF))
                     .target(imageView)
                     .build();
             imageLoader.enqueue(request);
@@ -205,19 +206,25 @@ public class CoilImageLoader extends ImageLoadersClass {
     }
 
     @Override
-    public void complexRotate(String url, ImageView imageView) {
-        // TODO Убрать метод
-    }
-
-    @Override
     public void customTransform(String url, ImageView imageView) {
         ImageRequest request = new ImageRequest.Builder(context)
                 .data(url)
-                // Закругленные края
-                //.transformations(new RoundedCornersTransformation(16f))
                 .transformations(new CircleCropTransformation())
                 .target(imageView)
                 .build();
         imageLoader.enqueue(request);
+    }
+    @Override
+    public void complexRotate(String url, ImageView imageView) {
+        Log.e("!", "А не и должно");
+    }
+    @Override
+    public void noFadePicasso(String url, ImageView imageView, int placeholderResId) {
+        Log.e("!", "А не и должно");
+    }
+
+    @Override
+    public void forGifsGlide(String url, ImageView imageView) {
+        Log.e("!", "А не и должно");
     }
 }

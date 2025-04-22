@@ -20,6 +20,7 @@ public class PicassoImageLoader extends ImageLoadersClass {
     }
 
     ///
+    @Override
     public void noFadePicasso(String url, ImageView imageView, int placeholderResId) {
         isValidUrl(url);
         checkContext();
@@ -29,12 +30,14 @@ public class PicassoImageLoader extends ImageLoadersClass {
                 .noFade().into(imageView);
     }
 
+
+
     //
     @Override
     public void loadImage(String url, ImageView imageView) {
         isValidUrl(url);
         checkContext();
-        // Запуск
+        // Получить
         Picasso.get()
                 // Что
                 .load(url)
@@ -49,7 +52,8 @@ public class PicassoImageLoader extends ImageLoadersClass {
         Picasso.get()
                 .load(url)
                 // Ссылка на заглушку
-                .placeholder(placeholderResId) // can also be a drawable
+                // ccылка на res из drawable
+                .placeholder(placeholderResId)
                 .into(imageView);
     }
 
@@ -60,13 +64,14 @@ public class PicassoImageLoader extends ImageLoadersClass {
         Picasso.get()
                 .load(url)
                 .placeholder(placeholderResId)
-                .error(errorResId) // will be displayed if the image cannot be loaded
+                // Отобразится если изображение не загрузится
+                .error(errorResId)
                 .into(imageView);
     }
 
     @Override
     public void loadImage(String url, ImageView imageView, ImageLoadCallback callback) {
-       // isValidUrl(url);
+        // isValidUrl(url);
         checkContext();
         Picasso.get()
                 .load(url)
@@ -85,13 +90,15 @@ public class PicassoImageLoader extends ImageLoadersClass {
         });
     }
 
+
     @Override
     public void resizeImageDefault(String url, ImageView imageView) {
         isValidUrl(url);
         checkContext();
         Picasso.get()
                 .load(url)
-                .resize(300, 300)// resizes the image to these dimensions (in pixel). does not respect aspect ratio
+                // изменяет размер в пикселях
+                .resize(300, 300)
                 .into(imageView);
     }
 
@@ -102,7 +109,7 @@ public class PicassoImageLoader extends ImageLoadersClass {
         if (resizeWight != 0 && resizeHeight != 0) {
             Picasso.get()
                     .load(url)
-                    .resize(resizeWight, resizeHeight)// resizes the image to these dimensions (in pixel). does not respect aspect ratio
+                    .resize(resizeWight, resizeHeight)
                     .into(imageView);
         } else {
             resizeImageDefault(url, imageView);
@@ -146,7 +153,10 @@ public class PicassoImageLoader extends ImageLoadersClass {
     public void rotateDefault(String url, ImageView imageView) {
         isValidUrl(url);
         checkContext();
-        Picasso.get().load(url).rotate(90f).into(imageView);
+        Picasso.get()
+                .load(url)
+                .rotate(90f)
+                .into(imageView);
     }
 
     @Override
@@ -212,6 +222,10 @@ public class PicassoImageLoader extends ImageLoadersClass {
                 .load(url)
                 .transform(new CircleTransform())
                 .into(imageView);
+    }
+    @Override
+    public void forGifsGlide(String url, ImageView imageView) {
+        Log.e("!", "А не и должно");
     }
 }
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTextLayout"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            app:helperTextEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/emailText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextLayout"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:hint="Пароль"
+            app:helperTextEnabled="true"
+            app:helperText="Минимум 6 "
+            app:endIconMode="password_toggle"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordText"
+                android:inputType="numberPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="Поле для вывода текста" />
+
+        <EditText
+            android:id="@+id/EdTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Поле для ввода текста"
+            android:imeOptions="actionNext"
+            android:inputType="text" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            app:helperTextEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/textEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</LinearLayout>

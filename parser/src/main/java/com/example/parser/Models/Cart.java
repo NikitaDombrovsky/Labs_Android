@@ -1,50 +1,58 @@
-package com.example.parser.Models; 
+package com.example.parser.Models;
+
+import com.google.gson.annotations.SerializedName;
+
 public class Cart{
-    public String book_title;
-    public String book_genre;
-    public String book_author;
-    public double book_price;
-    public double book_rating;
+    @SerializedName("book_title")
+    public String title;
+    @SerializedName("book_genre")
+    public String genre;
+    @SerializedName("book_author")
+    public String author;
+    @SerializedName("book_price")
+    public double price;
+    @SerializedName("book_rating")
+    public double rating;
     public int page_count;
 
-    public String getBook_title() {
-        return book_title;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBook_title(String book_title) {
-        this.book_title = book_title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBook_genre() {
-        return book_genre;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setBook_genre(String book_genre) {
-        this.book_genre = book_genre;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public String getBook_author() {
-        return book_author;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setBook_author(String book_author) {
-        this.book_author = book_author;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public double getBook_price() {
-        return book_price;
+    public double getPrice() {
+        return price;
     }
 
-    public void setBook_price(double book_price) {
-        this.book_price = book_price;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public double getBook_rating() {
-        return book_rating;
+    public double getRating() {
+        return rating;
     }
 
-    public void setBook_rating(double book_rating) {
-        this.book_rating = book_rating;
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
     public int getPage_count() {
@@ -55,12 +63,12 @@ public class Cart{
         this.page_count = page_count;
     }
 
-    public Cart(String book_title, String book_genre, String book_author, double book_price, double book_rating, int page_count) {
-        this.book_title = book_title;
-        this.book_genre = book_genre;
-        this.book_author = book_author;
-        this.book_price = book_price;
-        this.book_rating = book_rating;
+    public Cart(String title, String genre, String author, double price, double rating, int page_count) {
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.price = price;
+        this.rating = rating;
         this.page_count = page_count;
     }
 }

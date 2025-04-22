@@ -189,15 +189,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <Button
-                android:id="@+id/complexrotation"
+                android:id="@+id/customTransform"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary3"
+                android:text="Circle" />
+            <Button
+                android:id="@+id/gif"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorChange"
-                android:text="Complex Rotation" />
+                android:text="Gif" />
+
         </LinearLayout>
 
         <com.google.android.material.divider.MaterialDivider
@@ -219,22 +227,15 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorChange"
                 android:text="no fade" />
+
             <Button
-                android:id="@+id/customTransform"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary3"
-                android:text="Circle" />
-            <Button
-                android:id="@+id/gif"
+                android:id="@+id/complexrotation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorChange"
-                android:text="Gif" />
+                android:text="Complex Rotation" />
 
 
         </LinearLayout>

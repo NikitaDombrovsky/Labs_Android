@@ -4,6 +4,14 @@ public enum ImageLibrary {
     NONE,
     PICASSO,
     GLIDE,
-    FRESCO,
     COIL
 }
+
+/*public enum ImageLibrary {
+    NONE,
+    PICASSO,
+    GLIDE,
+    FRESCO,
+    COIL
+}*/
+
