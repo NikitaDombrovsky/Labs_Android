@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout emailLayout, passwordLayout, usernameLayout;
     TextInputEditText emailEditText, passwordEditText, usernameEditText;
     Button loginBtn, authBtn;
-    boolean checkEmail = false;
-    boolean checkPassword = false;
+
 
     public void init() {
         emailLayout = findViewById(R.id.emailTextLayout);
@@ -62,11 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (!email.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     emailLayout.setError("Введите корректный email");
                     correctEmail = false;
-                    checkEmail = false;
+
                 } else {
                     emailLayout.setError(null);
                     correctEmail = true;
-                    checkEmail = true;
+
                 }
             }
 
@@ -100,15 +98,15 @@ public class LoginActivity extends AppCompatActivity {
                 if (password.length() < 6) {
                     passwordLayout.setError("Пароль должен содержать минимум 6 символов");
                     countPassword = false;
-                    checkPassword = false;
+
                 } else if (password.length() >= 10) {
                     passwordLayout.setError("Пароль не должен содержать больше 10 символов");
                     countPassword = false;
-                    checkPassword = false;
+
                 } else {
                     passwordLayout.setError(null);
                     countPassword = true;
-                    checkPassword = true;
+
                 }
             }
         });
@@ -141,13 +139,27 @@ public class LoginActivity extends AppCompatActivity {
             boolean validEmail = checkEmail();
             boolean validUserName = checkUserName();
             if (validPassword && validEmail && validUserName) {
-                startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
+                String userName = usernameLayout.getEditText().getText().toString();
+                String email = emailLayout.getEditText().getText().toString();
+                String password = passwordLayout.getEditText().getText().toString();
+                if (v.getId() == R.id.loginBtn){
+                    loginUser(userName, email, password);
+                } else if (v.getId() == R.id.authBtn){
+                    authUser(userName, email, password);
+                }
+
 
             }
         };
         loginBtn.setOnClickListener(listener);
         authBtn.setOnClickListener(listener);
 
+    }
+    public void loginUser(String userName, String email, String password){
+        startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
+    }
+    public void authUser(String userName, String email, String password){
+        startActivity(new Intent(getApplicationContext(), OrdersActivity.class));
     }
 
     public boolean checkUserName() {
